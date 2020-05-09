@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
 img {
   width: 100%;
@@ -29,6 +30,28 @@ header {
   align-items: center;
   position: relative;
   z-index: 200;
+}
+
+header.sticky {
+  position: fixed;
+  background-color: white;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+  animation: dropDown 0.5s ease-in-out forwards;
+}
+
+header.sticky .logo,
+header.sticky nav a,
+header.sticky nav i {
+  color: var(--text--color-dark);
+}
+
+@keyframes dropDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .logo {
@@ -142,10 +165,10 @@ section {
   max-width: 1480px;
   padding: 0 80px;
 }
-.section-bg{
+.section-bg {
   position: relative;
 }
-.section-bg::before{
+.section-bg::before {
   content: "";
   display: block;
   position: absolute;
@@ -154,9 +177,6 @@ section {
   height: 100%;
   z-index: -1;
 }
-
-
-
 
 .title1 {
   font-size: 34px;
@@ -218,105 +238,412 @@ section {
   margin-top: 8px;
 }
 
-.showcases{
+.showcases {
   max-width: unset;
   padding: 0;
-  padding-top:0;
+  padding-top: 0;
 }
 
 /* 成功案例 */
-.showcases{
+.showcases {
   max-width: unset;
   padding: 0;
   padding-top: 72px;
 }
 
-.filter-btns{
+.filter-btns {
   margin-top: 54px;
   margin-bottom: 38px;
 }
 
-.filter-btn{
+.filter-btn {
   margin: 0 7px;
   background-color: var(--secondary-color);
-  border:0;
+  border: 0;
   color: var(--text--color-dark-gray);
-  padding:8px 18px;
-  border-radius:4px;
+  padding: 8px 18px;
+  border-radius: 4px;
   cursor: pointer;
   transition: 0.4;
 }
 
 .filter-btn::focus,
-.filter-btn::active{
+.filter-btn::active {
   outline: none;
 }
 
 .filter-btn.active,
-.filter-btn:hover{
+.filter-btn:hover {
   background-color: var(--primary-color);
   color: white;
 }
 
-.showcases .cases{
+.showcases .cases {
   width: 100vw;
 }
 
-.showcases .case-item{
+.showcases .case-item {
   width: 25vw;
   height: 20vw;
   overflow: hidden;
 }
 
-.case-item img{
+.case-item img {
   height: 100%;
-  object-fit:cover;
+  object-fit: cover;
 }
-
-
 
 /* 服务流程 */
-.service{
+.service {
   padding-top: 131px;
-
 }
 
-.services{
+.services {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows:1fr 1fr;
-  column-gap:38px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  column-gap: 38px;
   row-gap: 34px;
 }
 
-.service-item{
+.service-item {
   display: grid;
-  grid-template-areas: 
-  "icon title"
-  "icon content";
+  grid-template-areas:
+    "icon title"
+    "icon content";
   grid-template-columns: 70px 1fr;
   grid-template-rows: 1fr 3fr;
   padding: 24px;
   box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.06);
 }
 
-.service-item i.fas{
+.service-item i.fas {
   grid-area: icon;
   font-size: 42px;
   color: var(--primary-color);
   padding-top: 6px;
 }
 
-.service-item .service-title{
+.service-item .service-title {
   grid-area: title;
   color: var(--text--color-darker);
   font-size: 24px;
 }
 
-.service-item .service-content{
+.service-item .service-content {
   grid-area: content;
   color: var(--text--color-gray);
   line-height: 30px;
   font-size: 16px;
   margin-top: 8px;
+}
+
+/* 团队介绍 */
+.team-intro {
+  margin-top: 48px;
+  padding-top: 62px;
+  padding-bottom: 52px;
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 24px;
+  margin-top: 86px;
+}
+
+.team-member {
+  background-color: white;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding-bottom: 28px;
+
+  transition: 0.4s;
+  display: grid;
+  justify-items: center;
+}
+
+.profile-image {
+  overflow: hidden;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 264px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.team-member .name {
+  margin-top: 18px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text--color-dark);
+}
+
+.team-member .position {
+  color: var(--text--color-gray);
+  margin-top: 12px;
+  margin-bottom: 18px;
+}
+
+.social-links {
+  display: flex;
+  width: 100%;
+  max-width: 200px;
+  justify-content: space-between;
+  padding: 0 42px;
+}
+
+.social-links li {
+  list-style: none;
+}
+
+.social-links li a {
+  color: var(--text--color-dark);
+  text-decoration: none;
+}
+
+.team-member:hover {
+  transform: translateY(-20px) scale(1.05);
+  box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.1);
+}
+
+/* 数据部分 */
+.data-section {
+  max-width: unset;
+  width: 100vw;
+  height: 255px;
+  background-image: url(images/adult-business-computer-contemporary-380769.jpg);
+  background-position: center;
+  background-size: cover;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(auto, 200px));
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 20;
+}
+
+.data-section::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: var(--backdrop-color);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.data-piece {
+  width: 250px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  color: white;
+  position: relative;
+  z-index: 40;
+}
+
+.data-piece i.fas {
+  font-size: 44px;
+}
+
+.data-piece .num {
+  margin-top: 7px;
+  font-size: 41px;
+  font-weight: 600;
+}
+
+.data-piece .data-desc {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* 公司动态 */
+.company-activities {
+  margin-top: 90px;
+}
+
+.activities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+}
+
+.activity {
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  transition: 0.4s;
+}
+
+.act-image-wrapper {
+  height: 255px;
+  overflow: hidden;
+  margin: -24px;
+  margin-bottom: 0;
+}
+
+.act-image-wrapper img {
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.activity .meta {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  color: var(--text--color-light-gray);
+  font-size: 12px;
+  display: flex;
+}
+
+.activity .meta > p:last-child {
+  margin-left: 36px;
+}
+
+.act-title {
+  color: var(--text--color-dark);
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.activity article {
+  color: var(--text--color-gray);
+  letter-spacing: 0.54px;
+  line-height: 24px;
+}
+
+.read-more-btn {
+  margin-left: 20em;
+  border: 0;
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 6px;
+  padding: 6px 14px;
+  margin-top: 24px;
+}
+
+.activity:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
+}
+
+/* 底部信息 */
+footer {
+  margin-top: 124px;
+  background-color: #181818;
+  display: grid;
+  justify-items: center;
+  padding-top: 72px;
+  padding-bottom: 24px;
+}
+
+.footer-menus {
+  width: 100%;
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  padding: 0 80px;
+  position: relative;
+}
+
+.menu-title {
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.contact-us {
+  justify-self: start;
+  color: var(--text-color-lightest);
+}
+
+.contact-us p:not(:first-child) {
+  padding-bottom: 16px;
+}
+
+.menu-items li {
+  list-style: none;
+  padding-bottom: 8px;
+}
+
+.menu-items li a {
+  text-decoration: none;
+  font-weight: 300;
+  color: var(--text-color-lightest);
+}
+
+.icp-info {
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.icp-info,
+.rights {
+  grid-column: 1/-1;
+  justify-self: center;
+  color: white;
+}
+
+.scrollToTop {
+  display: none;
+  z-index: 300;
+}
+
+.scrollToTop a {
+  width: 35px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  position: fixed;
+  bottom: 63px;
+  right: 30px;
+}
+
+.scrollToTop i {
+  font-size: 25px;
+}
+
+/* 设置响应式 */
+@media (max-width: 1100px) {
+  header nav {
+    display: none;
+  }
+
+  header{
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  header .burger {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    justify-self: end;
+  }
+
+  .burger-line1,
+  .burger-line2,
+  .burger-line3 {
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-color-lightest);
+  }
+}
+
+.burger-line1{
+  position: absolute;
+  top: -6px;
+}
+
+.burger-line3{
+  position: absolute;
+  top: 6px;
 }
